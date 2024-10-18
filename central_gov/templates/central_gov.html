@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>LOCAL GOVERNANCE AND SERVICES TRACKER (LGST)</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- Include DataTables CSS and JS (CDN) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.6/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.6/datatables.min.js"></script>
+
+    <!-- Include Tailwind CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/chart/Chart.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+
+    <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://code.highcharts.com/10/highcharts.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+    <script>
+      var Highstock = window.Highcharts;
+      window.Highcharts = null;
+    </script>
+    <script src="https://code.highcharts.com/gantt/highcharts-gantt.js"></script>
+    <script src="https://code.highcharts.com/gantt/modules/accessibility.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+
+    
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/bullet.js"></script>
+    <script src="https://code.highcharts.com/modules/sunburst.js"></script>
+
+    <style>
+      .icon-box:hover h4 {
+        color: #fff;
+      }
+
+      .highcharts-figure,
+      .highcharts-data-table table {
+          min-width: 360px;
+          max-width: 800px;
+          margin: 1em auto;
+      }
+
+      
+
+      .highcharts-data-table table {
+          font-family: Verdana, sans-serif;
+          border-collapse: collapse;
+          border: 1px solid #ebebeb;
+          margin: 10px auto;
+          text-align: center;
+          width: 100%;
+          max-width: 500px;
+      }
+
+      .highcharts-data-table caption {
+          padding: 1em 0;
+          font-size: 1.2em;
+          color: #555;
+      }
+
+      .highcharts-data-table th {
+          font-weight: 600;
+          padding: 0.5em;
+      }
+
+      .highcharts-data-table td,
+      .highcharts-data-table th,
+      .highcharts-data-table caption {
+          padding: 0.5em;
+      }
+
+      .highcharts-data-table thead tr,
+      .highcharts-data-table tr:nth-child(even) {
+          background: #f8f8f8;
+      }
+
+      .highcharts-data-table tr:hover {
+          background: #f1f7ff;
+      }
+
+      #timeliness_transfers {
+        max-width: 800px;
+        margin: 1em auto;
+      }
+
+      .divider {
+        border-left-width: 0px;
+        border-left-style: initial;
+        border-right-width: 0px;
+        border-right-style: initial;
+        border-bottom-width: 0px;
+        border-bottom-style: initial;
+        border-color: grey;
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
+
+      .highcharts-figure1 {
+        width: 260px;
+        margin: 1em auto;
+      }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ======= Top Bar ======= -->
+    <div id="topbar" class="d-flex align-items-center fixed-top">
+      <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">info@igrsl.org</a>
+          <i class="bi bi-phone"></i> +232 30 992 907
+      </div>
+      <div class="d-none d-lg-flex social-links align-items-center">
+          <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+      </div>
+    </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+      <div class="container d-flex align-items-center">
+
+          <h1 class="logo me-auto"><a href="{% url 'index' %}" style="font-size: 16px;">LOCAL GOVERNANCE AND SERVICES TRACKER (LGST)</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+          <nav id="navbar" class="navbar order-last order-lg-0">
+              <ul>
+                  <li><a class="nav-link scrollto" href="{% url 'index' %}">Home</a></li>
+                  <li><a class="nav-link scrollto active" href="{% url 'central_gov' %}">Central Government</a></li>
+                  <li><a class="nav-link scrollto" href="{% url 'local_gov' %}">Local Council</a></li>
+                  <li><a class="nav-link scrollto" href="{% url "cso_media" %}">CSO & Media</a></li>
+              </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+
+      </div>
+  </header><!-- End Header -->
+
+    <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+            <ol>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li>Central Government Dashboard</li>
+            </ol>
+            </div>
+
+        </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="inner-page">
+        <div class="container">
+
+          <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container-fluid">
+
+        <div class="section-title" style="margin-top: -50px;">
+          <h2>Central Government Dashboard</h2>
+        </div>
+
+        <!--Budget Allocation-->
+        <div class="row">
+          <div class="col-md-6">
+            <figure class="highcharts-figure">
+              <div id="budget-allocation-2023"></div>
+              <p class="text-center pl-6 mt-4 fs-6 mb-2" style="color:black">2023</p>
+            </figure>
+          </div>
+          <div class="col-md-4">
+            <figure class="highcharts-figure1">
+              <div id="budget-allocation-2024"></div>
+              <p class="text-center pl-6 mt-4 fs-6 mb-2" style="color:black">2024</p>
+              <p class="text-right mt-4 mb-2" style="color:black; font-size: 10px;">Source: Fiscal Decentralisation Division, Ministry of Finance</p>
+            </figure>
+          </div>
+          <div class="col-md-2 col-sm-12 col-xs-12" style="margin-top: 60px;">
+            <div style="background-color: #32bfff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                  Budget allocations and transfers to Local Councils have been consistently low throughout the years, showing a weak commitment to decentralisation. Low budget affects the capacity of local councils to provide quality services.
+                </p>
+            </div>
+          </div>
+
+        </div>
+        
+
+        <hr class="divider">
+
+        <!--Timeliness of transfers-->
+        <div class="row">
+          <div class="col-md-8">
+            <figure class="highcharts-figure">
+              <h5 class="text-2xl font-bold text-center leading-none text-gray-900 pr-1 mb-4">Timeliness of transfers to Local Councils</h5>
+    
+              <div class="row mt-8 text-center">
+                <div class="col-3">
+                    <p class="text-center fs-5 fw-bold mb-2" style="color:black">Jan - March</p>
+                    <p class="legend-item text-center text-white p-4 pt-8" style="background-color: #32bfff">Ontime</p>
+                </div>
+                <div class="col-3">
+                    <p class="text-center fs-5 fw-bold mb-2" style="color:black">April - June</p>
+                    <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Severe Delay</p>
+                </div>
+                <div class="col-3">
+                    <p class="text-center fs-5 fw-bold mb-2" style="color:black">July - Sept</p>
+                    <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Severe Delay</p>
+                </div>
+                <div class="col-3">
+                  <p class="text-center fs-5 fw-bold mb-2" style="color:black">Oct - Dec</p>
+                  <p class="legend-item bg-yellow-500 text-center text-white p-4 pt-8">Delay</p>
+                </div>
+              </div>
+
+              <p class="text-center pl-6 mt-4 fs-6 mb-2" style="color:black">2023</p>
+    
+              <hr class="divider">
+    
+              <div class="row mt-8 text-center">
+                <div class="col-3">
+                    <p class="text-center fs-5 fw-bold mb-2" style="color:black">Jan - March</p>
+                    <p class="legend-item bg-white-500 text-center text-white p-4 pt-8" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">No data</p>
+                </div>
+                <div class="col-3">
+                    <p class="text-center fs-5 fw-bold mb-2" style="color:black">April - June</p>
+                    <p class="legend-item bg-white-500 text-center text-white p-4 pt-8" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">No data</p>
+                </div>
+                <div class="col-3">
+                    <p class="text-center fs-5 fw-bold mb-2" style="color:black">July - Sept</p>
+                    <p class="legend-item bg-white-500 text-center text-white p-4 pt-8" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">No data</p>
+                </div>
+                <div class="col-3">
+                  <p class="text-center fs-5 fw-bold mb-2" style="color:black">Oct - Dec</p>
+                  <p class="legend-item bg-white-500 text-center text-white p-4 pt-8" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);">No data</p>
+                </div>
+              </div>
+
+              <p class="text-center pl-6 mt-4 fs-6 mb-2" style="color:black">2024</p>
+    
+              <hr class="divider">
+          
+              <!-- Legend -->
+              <div class="row mt-8 text-center">
+                  <div class="col-4">
+                      <p class="legend-item text-center text-white p-4 pt-8" style="background-color: #32bfff">Ontime (0-2 months)</p>
+                  </div>
+                  <div class="col-4">
+                      <p class="legend-item bg-yellow-500 text-center text-white p-4 pt-8">Delayed (2-3 months)</p>
+                  </div>
+                  <div class="col-4">
+                      <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Severe Delay (3+ months)</p>
+                  </div>
+              </div>
+    
+              <p class="text-right mt-4 mb-2" style="color:black; font-size: 10px;">Source: Fiscal Decentralisation Division, Ministry of Finance</p>
+            </figure>
+          </div>
+          <div class="col-md-4" style="margin-top: 60px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                  Decentralisation policy requires the central government to make quarterly transfers to local councils. There have been consistent delays as reflected in the baseline 2023.
+                </p>
+            </div>
+          </div>
+        </div>
+        
+
+        <hr class="divider">
+
+        <!--MDAs-->
+        <div class="row">
+          <div class="col-md-8">
+            <figure class="highcharts-figure">
+              <div id="revenue-sharing"></div>
+              <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: Fiscal Decentralisation Division, Ministry of Finance</p>
+            </figure>
+          </div>
+          <div class="col-md-4" style="margin-top: 60px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                  Sierra Leone has implemented decentralisation for 20 years without a Fiscal Devolution law. A good fiscal decentralisation  policy (revenue sharing arrangement) could potentially increase resource allocation/budget transfers to local councils. 
+                </p>
+            </div>
+          </div>
+          
+        </div>
+        
+
+
+        <!--Budget Allocation-->
+        <script>
+          Highcharts.chart('budget-allocation-2023', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Budget allocated for devolved functions',
+                align: 'center'
+            },
+            subtitle: {
+                text: 'Percentage of budget allocated versus transferred to Local Councils',
+                align: 'center',
+                style: {
+                  fontSize: '16px'
+                }
+            },
+            accessibility: {
+                announceNewData: {
+                    enabled: true
+                },
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f}%'
+                    },
+                    showInLegend: false
+                }
+            },
+            tooltip: {
+              formatter: function () {
+                  if (this.point.drilldown) {
+                      return '<b>' + this.point.name + '</b>: ' + this.point.y.toFixed(2) + '% / NLE 136,612,000';
+                  } else {
+                      return '<b>' + this.point.name + '</b>: ' + this.point.y.toFixed(2) + '% / NLE 9,208,755,000';
+                  }
+              }
+            },
+            breadcrumbs: {
+                position: {
+                    align: 'right'
+                }
+            },
+            series: [{
+                name: 'National Budget',
+                colorByPoint: true,
+                data: [{
+                        name: 'Budget Allocation for Local Councils',
+                        y: 1.46,
+                        sliced: true,
+                        drilldown: 'Budget Allocation for Local Councils',
+                        color: '#32bfff'
+                    },
+                    {
+                        name: 'National Budget Central Level',
+                        y: 98.54,
+                        drilldown: null,
+                        color: 'red'
+                    }
+                ]
+            }],
+            drilldown: {
+              series: [{
+                name: 'Budget Allocation for Local Councils',
+                id: 'Budget Allocation for Local Councils',
+                data: [{
+                        name: 'Transferred to local councils',
+                        y: 23,
+                        color: '#32bfff'
+                    },
+                    {
+                        name: 'Not transferred to local councils',
+                        y: 77,
+                        color: 'red'
+                    }
+                ]
+            }],
+            tooltip: {
+              formatter: function () {
+                  if (this.point.drilldown && !this.point.series.chart.series.some(series => series.userOptions.id === this.point.drilldown)) {
+                      // If drilldown exists and it's not active, display regular tooltip content
+                      return '<b>' + this.point.name + '</b>: ' + this.point.y.toFixed(2);
+                  } else {
+                      // If drilldown is active, display additional information
+                      return '<b>' + this.point.name + '</b>: ' + this.point.y.toFixed(2) + ' additional information';
+                  }
+              }
+          }
+          
+          
+            }
+          });        
+        </script>
+
+        <script>
+          Highcharts.chart('budget-allocation-2024', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Budget allocation for devolved functions',
+                align: 'center',
+                style: {
+                  color: '#ffffff'
+              }
+            },
+            subtitle: {
+                text: null,
+                align: 'center',
+                style: {
+                  fontSize: '16px'
+                }
+            },
+            accessibility: {
+                announceNewData: {
+                    enabled: true
+                },
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f}%'
+                    },
+                    showInLegend: false
+                }
+            },
+            tooltip: {
+              formatter: function () {
+                  if (this.point.drilldown) {
+                      return '<b>' + this.point.name + '</b>: ' + this.point.y.toFixed(2) + '% of NLE 136,612,000';
+                  } else {
+                      return '<b>' + this.point.name + '</b>: ' + this.point.y.toFixed(2) + '% of NLE 9,208,755,000';
+                  }
+              }
+            },
+            breadcrumbs: {
+                position: {
+                    align: 'right'
+                }
+            },
+            series: [{
+                name: 'Budget Allocation to devloved functions',
+                colorByPoint: true,
+                data: [{
+                        name: 'Budget Allocation for Local Councils',
+                        //y: 0.0,
+                        //sliced: true,
+                        //drilldown: 'Budget Allocation for Local Councils',
+                        color: '#32bfff'
+                    },
+                    {
+                        name: 'National Budget Central Level',
+                        //y: 0.0,
+                        drilldown: null,
+                        color: 'red'
+                    }
+                ]
+            }],
+            drilldown: {
+              series: [{
+                name: 'Budget Allocation for Local Councils',
+                id: 'Budget Allocation for Local Councils',
+                data: [{
+                        name: 'Transferred to local councils',
+                        y: 23,
+                        color: 'blue'
+                    },
+                    {
+                        name: 'Not transferred to local councils',
+                        y: 77,
+                        color: 'red'
+                    }
+                ]
+            }],
+            tooltip: {
+              formatter: function () {
+                return '<b>' + this.point.name + '</b>: ' + this.point.y.toFixed(2);
+                  
+              }
+            }
+            }
+          });        
+        </script>
+
+        <!--MDAs-->
+        <script>
+          Highcharts.chart('revenue-sharing', {
+            chart: {
+                type: 'waterfall'
+            },
+        
+            title: {
+                text: 'Existence of fiscal decentralisation policy'
+            },
+        
+            xAxis: {
+                type: 'category'
+            },
+        
+            yAxis: {
+                title: {
+                    text: null // Remove y-axis title
+                },
+                labels: {
+                    enabled: false // Remove y-axis labels
+                },
+                gridLineWidth: 0 // Remove gridlines
+            },
+        
+            legend: {
+                enabled: false
+            },
+
+            tooltip: false,
+        
+            series: [{
+                data: [{
+                    name: 'Consultation on the draft',
+                    y: 25,
+                    color: '#32bfff' // Specify the color for this step
+                }, {
+                    name: 'Draft developed',
+                    y: 25,
+                    color: '#32bfff' // Specify the color for this step
+                }, {
+                    name: 'Draft reviewed by GoSL and partners',
+                    y: 25,
+                    color: 'red',
+                }, {
+                    name: 'Finalized and adopted by GoSL',
+                    y: 25,
+                    color: 'red' // Specify the color for this step
+                }, {
+                    name: 'Revenue share of Local Councils increased',
+                    isIntermediateSum: true, // Indicate this is the last data point
+                    y: 100,
+                    color: 'red', // Specify the color for this step
+                }],
+                pointPadding: 0
+            }]
+          });
+        </script>
+      
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+        </div>
+    </section>
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="container d-md-flex py-4">
+
+          <div class="me-md-auto text-center text-md-start">
+            <div class="copyright">&copy; Copyright <strong><span><a href="https://igr-sl.org">Institute for Governance Reform (IGR)</a> 2024</span></strong>. All Rights Reserved</div>
+          </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+
+    <script src="{% static 'tw-elements/dist/js/tw-elements.umd.min.js' %}" type="text/javascript"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+        // setup 
+        const data = {
+          labels: {{keys_alot_somewhat|safe}},
+          datasets: [{
+            label: 'Weekly Sales',
+            data: [40, 20, 40],
+            backgroundColor: [
+              '#FF0000',
+              '#FFA500',
+              '#008000',
+            ],
+            borderColor: [
+              '#FF0000',
+              '#FFA500',
+              '#008000',
+            ],
+            borderWidth: 1,
+            circumference: 180,
+            rotation: 270,
+            cutout: '80%',
+            needleValue: {{values_alot_somewhat|safe}},
+          }]
+        };
+  
+        const guageNeedle = {
+          id: 'guageNeedle',
+          afterDatasetsDraw(chart, args, plugins) {
+            const {ctx, data} = chart;
+            
+            ctx.save();
+            const xCenter = chart.getDatasetMeta(0).data[0].x;
+            const yCenter = chart.getDatasetMeta(0).data[0].y;
+            const outerRadius = chart.getDatasetMeta(0).data[0].outerRadius;
+            const innerRadius = chart.getDatasetMeta(0).data[0].innerRadius;
+            const widthSlice = (outerRadius - innerRadius) / 2;
+            const radius = 15;
+            const angle = Math.PI / 180;
+  
+            const needleValue = data.datasets[0].needleValue;
+            const dataTotal = data.datasets[0].data.reduce((a, b) => a + b, 0);
+            const circumference = ((chart.getDatasetMeta(0).data[0].circumference / Math.PI) / data.datasets[0].data[0]) * needleValue;
+  
+            ctx.translate(xCenter, yCenter);
+            ctx.rotate(Math.PI * (circumference + 1.5));
+  
+            // needle
+            ctx.beginPath();
+            ctx.strokeStyle = 'black';
+            ctx.fillStyle = 'black';
+            ctx.lineWidth = 1;
+            ctx.moveTo(0 - radius, 0);
+            ctx.lineTo(0, 0 - innerRadius - widthSlice);
+            ctx.lineTo(0 + radius, 0);
+            ctx.closePath();
+            ctx.stroke();
+            ctx.fill();
+  
+            // dot
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, angle * 360, false);
+            ctx.fill();
+  
+            ctx.restore();
+          }
+        }
+  
+        // guageFlowMeter plugin block
+        const guageFlowMeter = {
+          id: "guageFlowMeter",
+          afterDatasetsDraw(chart, args, plugins) {
+            const {ctx, data} = chart;
+  
+            ctx.save();
+            const needleValue = data.datasets[0].needleValue;
+            const xCenter = chart.getDatasetMeta(0).data[0].x;
+            const yCenter = chart.getDatasetMeta(0).data[0].y;
+            const circumference = ((chart.getDatasetMeta(0).data[0].circumference / Math.PI) / data.datasets[0].data[0]) * needleValue;
+            const percentageValue = circumference * 100;
+  
+            // flowMeter
+            ctx.font = 'bold 20px sans-serif';
+            ctx.fillStyle = 'black';
+            ctx.textAlign = 'center';
+            ctx.fillText(`${percentageValue.toFixed(1)}%`, xCenter, yCenter + 50);
+  
+          }
+  
+        }
+  
+        // guageLabels plugin block
+        const guageLabels = {
+          id: 'guageLabels',
+          afterDatasetsDraw(chart, args, plugins) {
+            const {ctx, chartArea: {left, right} } = chart;
+            const xCenter = chart.getDatasetMeta(0).data[0].x;
+            const yCenter = chart.getDatasetMeta(0).data[0].y;
+            const outerRadius = chart.getDatasetMeta(0).data[0].outerRadius;
+            const innerRadius = chart.getDatasetMeta(0).data[0].innerRadius;
+            const widthSlice = (outerRadius - innerRadius) / 2;
+  
+            ctx.translate(xCenter, yCenter);
+            ctx.font = 'bold 18px sans-serif';
+            ctx.fillStyle = 'black';
+            ctx.textAlign = 'center';
+            ctx.fillText("Don't trust", 0 - innerRadius - widthSlice, 0 + 20);
+            ctx.fillText('Trust', 0 + innerRadius + widthSlice, 0 + 20);
+            ctx.restore();
+          }
+        }
+  
+        // config 
+        const config = {
+          type: 'doughnut',
+          data,
+          options: {
+            layout: {
+              padding: {
+                bottom: 50,
+              }
+            },
+            aspectRatio: 1.8,
+            plugins: {
+              legend: {
+                display: false,
+              },
+              tooltip: {
+                enabled: false,
+              }
+            }
+          },
+          plugins: [guageNeedle, guageFlowMeter, guageLabels]
+        };
+  
+        // render init block
+        const ctx = document.getElementById('trustChart').getContext('2d');
+        const myChart = new Chart(ctx, config);
+  
+    </script>
+
+</body>
+
+</html>

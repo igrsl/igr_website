@@ -1,0 +1,3094 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>LOCAL GOVERNANCE AND SERVICES TRACKER (LGST)</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- Include DataTables CSS and JS (CDN) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.6/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.6/datatables.min.js"></script>
+
+    <!-- Include Tailwind CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/chart/Chart.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+
+    <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/bullet.js"></script>
+    <script src="https://code.highcharts.com/modules/sunburst.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <style>
+        .icon-box:hover h4 {
+            color: #fff;
+        }
+
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 310px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        #container {
+            height: 400px;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #ebebeb;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+
+
+        .divider {
+            border-left-width: 0px;
+            border-left-style: initial;
+            border-right-width: 0px;
+            border-right-style: initial;
+            border-bottom-width: 0px;
+            border-bottom-style: initial;
+            border-color: grey;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        #trust {
+            height: 400px;
+        }
+
+        #container1 {
+            height: 115px;
+        }
+    
+        #container2,
+        #container3 {
+            height: 85px;
+        }
+        
+        .hc-cat-title {
+            font-size: 13px;
+            font-weight: bold;
+        }
+        
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 320px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+    
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #ebebeb;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+        
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+    
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+        
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+        
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+
+        #learning {
+        min-width: 310px;
+        max-width: 800px;
+        height: 400px;
+        margin: 0 auto;
+        }
+
+        .buttons {
+            min-width: 310px;
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 0;
+        }
+        
+        .buttons button {
+            cursor: pointer;
+            border: 1px solid silver;
+            border-right-width: 0;
+            background-color: #f8f8f8;
+            font-size: 1rem;
+            padding: 0.5rem;
+            transition-duration: 0.3s;
+            margin: 0;
+        }
+    
+        .buttons button:first-child {
+            border-top-left-radius: 0.3em;
+            border-bottom-left-radius: 0.3em;
+        }
+        
+        .buttons button:last-child {
+            border-top-right-radius: 0.3em;
+            border-bottom-right-radius: 0.3em;
+            border-right-width: 1px;
+        }
+        
+        .buttons button:hover {
+            color: white;
+            background-color: rgb(158 159 163);
+            outline: none;
+        }
+    
+        .buttons button.active {
+            background-color: #0051b4;
+            color: white;
+        }
+    
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ======= Top Bar ======= -->
+    <div id="topbar" class="d-flex align-items-center fixed-top">
+        <div class="container d-flex justify-content-between">
+        <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">info@igrsl.org</a>
+            <i class="bi bi-phone"></i> +232 30 992 907
+        </div>
+        <div class="d-none d-lg-flex social-links align-items-center">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        </div>
+        </div>
+    </div>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="logo me-auto"><a href="{% url 'index' %}" style="font-size: 16px;">LOCAL GOVERNANCE AND SERVICES TRACKER (LGST)</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link scrollto" href="{% url 'index' %}">Home</a></li>
+                    <li><a class="nav-link scrollto" href="{% url 'central_gov' %}">Central Government</a></li>
+                    <li><a class="nav-link scrollto active" href="{% url 'local_gov' %}">Local Council</a></li>
+                    <li><a class="nav-link scrollto" href="{% url 'cso_media' %}">CSO & Media</a></li>
+                </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+
+    <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+            <ol>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li>Local Government Dashboard</li>
+            </ol>
+            </div>
+        </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="inner-page">
+        <div class="container">
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+        <div class="container-fluid">
+
+        <div class="section-title" style="margin-top: -50px;">
+            <h2>Local Government Dashboard</h2>
+        </div>
+
+
+    <!--Maternal Mortality-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <div id="maternalMortality"></div>
+                <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: Ministry of Health, <a target="_blank" href="https://play.dhis2.org/2.38.6/dhis-web-commons/security/account.action">DHIS2 DHIS 2 Demo - Sierra Leone</a></p>
+            </figure>
+        </div>
+        <div class="col-md-4" style="margin-top: 60px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    Sierra Leone has recorded very high maternal mortality ratio; a key indicator to measure the healthcare system of a developing country. The maternal mortality ratio (MMR) is defined as the number of maternal deaths during a given time period per 100,000 live births during the same time period  
+                    (<a target="_blank" href="https://www.who.int/data/gho/indicator-metadata-registry/imr-details/26">WHO definition</a>). This methodology enables us to track and compare district results according to international standards. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!--Under 5 Mortality-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <div id="Under5Mortality"></div>
+                <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: Ministry of Health, <a target="_blank" href="https://play.dhis2.org/2.38.6/dhis-web-commons/security/account.action">DHIS2 DHIS 2 Demo - Sierra Leone</a></p>
+            </figure>
+        </div>
+        <div class="col-md-4" style="margin-top: 60px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    The Free Healthcare Initiative and the Basic Package of Essential Health Services aim to provide accessible quality healthcare services to the vulnerable groups of infants and children under five years of age. The under-five mortality rate is the number of children who die by the age of 5 years, per 1000 live births. 
+                    (<a target="_blank" href="https://www.who.int/data/nutrition/nlis/info/under-five-mortality-rate">WHO definition</a>).  This methodology enables us to track and compare district results according to international standards. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!--Learning Outcomes-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <div id="learning"></div>
+                <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: West African Examination Council (WAEC)</p>
+            </figure>
+        </div>
+
+        <div class="col-md-4" style="margin-top: 100px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    NPSE results (2023) enable us to track and compare district learning outcomes. Learning outcome serves as a critical benchmark for evaluating the performance of education systems and guiding policy decisions aimed at improving education service delivery. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!--Own Source Revenue-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <div id="own-source"></div>
+                <p class="text-left pl-6 mt-4 fs-6 mb-2" style="color:black"><i>*Kono includes Koidu city revenue and population</i></p>
+                <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: Fiscal Decentralisation Division, Ministry of Finance</p>
+            </figure>
+        </div>
+
+        <div class="col-md-4" style="margin-top: 100px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    Citizens’ willingness to pay taxes and levels of revenue collected are important markers of Local Councils’ performances in service delivery. Here we track total own source revenue generated by the Local Councils per capita according to the 2021 population census for comparable district results.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <hr class="divider">
+
+    <!--Audit Recommendation-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <h5 class="text-2xl font-bold text-center leading-none text-gray-900 pr-1 mb-4">Audit recommendations</h5>
+                <p class="text-xl text-center leading-none text-gray-900 pr-1 mb-4">Percentage of audit recommendations implemented by Local Councils between 2015 and 2020</p>
+                <div class="row mt-8 text-center">
+                    <div class="col-4">
+                        <p class="legend-item bg-yellow-500 text-center text-white p-4 pt-8">Falaba <br> 54%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Karene <br> 38%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="legend-item bg-yellow-500 text-center text-white p-4 pt-8">Kono* <br> 51%</p>
+                    </div>
+                </div>
+        
+                <div class="row mt-8 text-center">
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Moyamba <br> 34%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Tonkolili <br> 9%</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Western Area Rural <br> 21%</p>
+                    </div>
+                </div>
+        
+                <hr class="divider">
+        
+                <div class="w-full p-4">
+                    <div class="bg-red-500 p-6 rounded-lg shadow-lg">
+                        <p class="text-white text-center">Average of 6 Districts: 35%</p>
+                    </div>
+                </div>
+            
+                <!-- Legend -->
+                <div class="row mt-8 text-center">
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Low (>45%)</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="legend-item bg-yellow-500 text-center text-white p-4 pt-8">Medium (=>45 - >60%)</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="legend-item text-center text-white p-4 pt-8" style="background-color: #32bfff;">High (>60%)</p>
+                    </div>
+                </div>
+                <p class="text-left pl-6 mt-4 fs-6 mb-2" style="color:black"><i>*Kono district council</i></p>
+                <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: Audit Service Sierra Leone (Annual Audit Reports 2015 –2020) </p>
+            </figure>
+        </div>
+
+        <div class="col-md-4" style="margin-top: 100px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    IGR’s analysis of 5 years of performance of councils on annual audits provides a baseline on the performance of decentralized bodies in public financial management, especially audit uptake. Moving forward, the tracker will monitor the response of the councils to current and future annual audit reports.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <hr class="divider">
+
+    <!--State of Local Council Report-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <h5 class="text-2xl font-bold text-center leading-none text-gray-900 pr-1 mb-4">State of Local Council Report</h5>
+                <p class="text-xl text-center leading-none text-gray-900 pr-1 mb-4">One annual State of Local Council Report on revenue and services published</p>
+                <div class="row mt-8 text-center">
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Falaba <br> 0</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Karene <br> 0</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Kono <br> 0</p>
+                    </div>
+                </div>
+        
+                <div class="row mt-8 text-center">
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Moyamba <br> 0</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Tonkolili <br> 0</p>
+                    </div>
+                    <div class="col-4">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">Western Area Rural <br> 0</p>
+                    </div>
+                </div>
+        
+                <hr class="divider">
+            
+                <!-- Legend -->
+                <div class="row mt-8 text-center">
+                    <div class="col-6">
+                        <p class="legend-item text-center text-white p-4 pt-8" style="background-color: #32bfff">1 (Report Published)</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="legend-item bg-red-500 text-center text-white p-4 pt-8">0 (No Report)</p>
+                    </div>
+                </div>
+            </figure>
+        </div>
+
+        <div class="col-md-4" style="margin-top: 100px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    Annual publication of the State of Local Council Report on revenue and services is meant to enhance transparency and accountability towards citizens with regards to the planning, budgets and performance of Local Councils. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!--Trust in LC-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <div id="trust"></div>
+                <p class="text-left pl-6 mt-4 fs-6 mb-2" style="color:black"><i>Measured on a likert scale, “a lot” and “just a little” answers combined</i></p>
+                <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: BASE/IGR primary data</p>
+            </figure>
+        </div>
+        <div class="col-md-4" style="margin-top: 60px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    Whether encouraging citizens to pay taxes, get vaccinated or obey the rule of law, government can achieve more from compliance than coercion. The baseline shows a significant trust deficit in local councils, and Afrobarometer data showed a decreasing trend nationwide. An increased trust in Local Councils is an indication of satisfaction with Local Councils and it will potentially enhance citizens’ input and active participation in service delivery. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!--Bribery-->
+    <!--Education-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <div id="bribery-education"></div>
+                <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: BASE/IGR primary data</p>
+            </figure>
+        </div>
+        <div class="col-md-4" style="margin-top: 60px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    Corruption undermines citizens’ trust, and restricts access to education service delivery, especially for low-income populations. Measuring bribery can inform anti-corruption strategies and improve transparency, equity and access, particularly for low-income communities. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--Healthcare-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <div id="bribery-health"></div>
+                <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: BASE/IGR primary data</p>
+            </figure>
+        </div>
+        <div class="col-md-4" style="margin-top: 60px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    Corruption undermines citizens’ trust, and restricts access to healthcare service delivery, especially for low-income populations. Measuring bribery can inform anti-corruption strategies and improve transparency, increase equity and access, particularly for low-income individuals and communities. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--Agriculture-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <div id="bribery-agri"></div>
+                <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: BASE/IGR primary data</p>
+            </figure>
+        </div>
+        <div class="col-md-4" style="margin-top: 60px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    Corruption undermines agricultural output, farmers’ trust, and restricts access to agricultural service delivery. Measuring bribery can inform anti-corruption strategies to improve transparency, increase equity and access, particularly for low-income farmers and communities. 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!--Community Stability-->
+    <div class="row">
+        <div class="col-md-8">
+            <figure class="highcharts-figure">
+                <div id="community-stability"></div>
+                <p class="text-right pl-6 mt-4 mb-2" style="color:black; font-size: 10px;">Source: BASE/IGR primary data</p>
+            </figure>
+        </div>
+
+        <div class="col-md-4" style="margin-top: 60px;">
+            <div style="background-color: #32bfff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="text-left" style="color: white; font-size: 12px; line-height: 1.5;">
+                    Community stability serves as a barometer of local governance performance, reflecting how much local authorities effectively address their constituents' needs and aspirations. It also fosters an environment conducive to social harmony, economic growth, and sustainable development. 
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+    
+
+
+
+    <!--Trust Colunm chart with Drilldown-->
+    <script>
+        // Original data
+        const trustData = [{
+                name: 'Moyamba',
+                y: 42,
+                drilldown: 'Moyamba'
+            },
+            {
+                name: 'Kono',
+                y: 42,
+                drilldown: 'Kono'
+            },
+            {
+                name: 'Western Area Rural',
+                y: 33,
+                drilldown: 'Western Area Rural'
+            },
+            {
+                name: 'Karene',
+                y: 29,
+                drilldown: 'Karene'
+            },
+            {
+                name: 'Tonkolili',
+                y: 27,
+                drilldown: 'Tonkolili'
+            },
+            {
+                name: 'Falaba',
+                y: 24,
+                drilldown: 'Falaba'
+            },
+            {
+                name: 'National',
+                y: 33,
+                drilldown: 'National'
+            }
+        ];
+    
+        // Sort data by y value in descending order
+        const sortedTrustData = trustData.sort((a, b) => b.y - a.y);
+    
+        // Set colors based on the threshold value of 33
+        const trustSeries = sortedTrustData.map(item => ({
+            name: item.name,
+            y: item.y,
+            drilldown: item.drilldown,
+            color: item.name === 'National' ? 'grey' : (item.y < 33 ? 'red' : item.y >= 33 ? '#32bfff' : 'orange')
+            //color: item.y < 33 ? 'red' : 'green' // Set color based on threshold
+        }));
+    
+        // Create chart
+        Highcharts.chart('trust', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                align: 'center',
+                text: 'Trust in local authorities'
+            },
+            subtitle: {
+                align: 'center',
+                text: "Percentage of people who say they trust their local council",
+                style: {
+                    fontSize: '16px'
+                }
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                gridLineWidth: 0,
+                max: 100
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.0f}%'
+                    },
+                }
+            },
+            series: [{
+                name: "Trust Level",
+                colorByPoint: false,
+                data: trustSeries
+            }],
+            drilldown: {
+                breadcrumbs: {
+                    position: {
+                        align: 'right'
+                    }
+                },
+                series: [{
+                        name: 'Falaba',
+                        id: 'Falaba',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                24
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Karene',
+                        id: 'Karene',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                29
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Kono',
+                        id: 'Kono',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                42
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Moyamba',
+                        id: 'Moyamba',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                42
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Tonkolili',
+                        id: 'Tonkolili',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                27
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Western Area Rural',
+                        id: 'Western Area Rural',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                33
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'National',
+                        id: 'National',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                33
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                ]
+            }
+        });
+    </script>
+
+    <!--Maternal Mortality-->
+    <script>
+        // Original data
+        const maternalData = [{
+                name: 'Moyamba',
+                y: 550,
+                drilldown: 'Moyamba'
+            },
+            {
+                name: 'Kono',
+                y: 1029,
+                drilldown: 'Kono'
+            },
+            {
+                name: 'Western Area Rural',
+                y: 25,
+                drilldown: 'Western Area Rural'
+            },
+            {
+                name: 'Karene',
+                y: 336,
+                drilldown: 'Karene'
+            },
+            {
+                name: 'Tonkolili',
+                y: 1791,
+                drilldown: 'Tonkolili'
+            },
+            {
+                name: 'Falaba',
+                y: 97,
+                drilldown: 'Falaba'
+            },
+            {
+                name: 'Average of 6 Districts',
+                y: 728,
+                drilldown: 'Average of 6 Districts'
+            }
+        ];
+    
+        // Sort data by y value in descending order
+        const sortedMaternalData = maternalData.sort((a, b) => b.y - a.y);
+    
+        // Set colors based on the threshold value of 33
+        const maternalSeries = sortedMaternalData.map(item => ({
+            name: item.name,
+            y: item.y,
+            drilldown: item.drilldown,
+            color: item.name === 'Average of 6 Districts' ? 'grey' : (item.y < 728 ? '#32bfff' : item.y >= 728 ? 'red' : 'orange')
+            //color: item.y < 33 ? 'red' : 'green' // Set color based on threshold
+        }));
+    
+        // Create chart
+        Highcharts.chart('maternalMortality', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                align: 'center',
+                text: 'Maternal mortality'
+            },
+            subtitle: {
+                align: 'center',
+                text: "Maternal mortality ratio expressed by the quarterly number of maternal deaths per 100,000 live births ",
+                style: {
+                    fontSize: '16px'
+                }
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                gridLineWidth: 0,
+                max: 2000
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.0f}'
+                    },
+                }
+            },
+            series: [{
+                name: "Maternal mortality",
+                colorByPoint: false,
+                data: maternalSeries
+            }],
+            drilldown: {
+                breadcrumbs: {
+                    position: {
+                        align: 'right'
+                    }
+                },
+                series: [{
+                        name: 'Falaba',
+                        id: 'Falaba',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                0
+                            ],
+                            [
+                                '2023 Q4',
+                                97
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Karene',
+                        id: 'Karene',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                155
+                            ],
+                            [
+                                '2023 Q4',
+                                336
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Kono',
+                        id: 'Kono',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                1182
+                            ],
+                            [
+                                '2023 Q4',
+                                1029
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Moyamba',
+                        id: 'Moyamba',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                346
+                            ],
+                            [
+                                '2023 Q4',
+                                550
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Tonkolili',
+                        id: 'Tonkolili',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                371
+                            ],
+                            [
+                                '2023 Q4',
+                                1791
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Western Area Rural',
+                        id: 'Western Area Rural',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                166
+                            ],
+                            [
+                                '2023 Q4',
+                                25
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Average of 6 Districts',
+                        id: 'Average of 6 Districts',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                441
+                            ],
+                            [
+                                '2023 Q4',
+                                728
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                ]
+            }
+        });
+    </script>
+
+    <script>
+        // setup 
+        const data = {
+            labels: ['Falaba', 'Karene', 'Kono', 'Moyamba', 'Tonkolili', 'Western Area Rural', 'Average of 6 Districts', 'National'],
+            datasets: [{
+            label: '2023 Q3',
+            data: [0, 155, 1182, 346, 371, 166, 441, 270], 
+            backgroundColor: [
+                'orange',
+            ],
+            borderColor: [
+                'orange'
+            ],
+            borderWidth: 1
+            },
+            {
+                label: '2023 Q4',
+                data: [97, 336, 1029, 550, 1791, 25, 728, 542],
+                backgroundColor: [
+                    'grey'
+                ],
+                borderColor: [
+                    'grey'
+                ],
+                borderWidth: 1
+                }]
+        };
+
+        // verticalPerformanceArrows
+        const verticalPerformanceArrows = {
+            id: 'verticalPerformanceArrows',
+            afterDatasetsDraw(chart, args, plugins) {
+                const { ctx, data, chartArea: {top}, scales: { x, y }} = chart;
+
+                ctx.save();
+                
+
+                function drawArrow(color, index, yS, yE) {
+                    ctx.beginPath();
+                    ctx.fillStyle = color;
+                    ctx.moveTo(x.getPixelForValue(index), top + yS);
+                    ctx.lineTo(x.getPixelForValue(index) - 7.5, top + yE);
+                    ctx.lineTo(x.getPixelForValue(index) + 7.5, top + yE);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+
+                function drawRectangle(color, index) {
+                    ctx.beginPath();
+                    ctx.fillStyle = color;
+                    ctx.moveTo(x.getPixelForValue(index) - 7.5, top + 5);
+                    ctx.lineTo(x.getPixelForValue(index) + 7.5, top + 5);
+                    ctx.lineTo(x.getPixelForValue(index) + 7.5, top + 10);
+                    ctx.lineTo(x.getPixelForValue(index) - 7.5, top + 10);
+                    ctx.fill();
+                }
+
+                data.datasets[0].data.forEach((datapoint, index) => {
+                    if(datapoint > data.datasets[1].data[index]) {
+                        drawArrow('#32bfff', index, 15, 0);
+                    } else if(datapoint < data.datasets[1].data[index]) {
+                        drawArrow('red', index, 0, 15);
+                    } else {
+                        drawRectangle('orange', index)
+                    }
+                })
+            }
+        }
+
+
+        const topLine = {
+            id: 'topLine',
+            afterDatasetsDraw(chart, args, plugins) {
+                const { ctx, data } = chart;
+        
+                ctx.save();
+        
+                // Iterate over all datasets
+                data.datasets.forEach((dataset, datasetIndex) => {
+                    chart.getDatasetMeta(datasetIndex).data.forEach((datapoint, index) => {
+                        ctx.beginPath();
+                        ctx.strokeStyle = dataset.borderColor[index];
+                        ctx.lineWidth = 3;
+                        const halfWidth = datapoint.width / 2;
+                        ctx.moveTo(datapoint.x - halfWidth, datapoint.y - 6);
+                        ctx.lineTo(datapoint.x + halfWidth, datapoint.y - 6);
+                        ctx.stroke();
+        
+                        // Text
+                        ctx.font = 'bold 12px';
+                        ctx.fillStyle = dataset.borderColor[index];
+                        ctx.textAlign = 'center';
+                        ctx.fillText(dataset.data[index], datapoint.x, datapoint.y - 15);
+                    });
+                });
+            }
+        };
+    
+        // config 
+        const config = {
+            type: 'bar',
+            data,
+            options: {
+                scales: {
+                x: {
+                    grid: {
+                        display: false 
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grace: '5%',
+                    grid: {
+                        display: false 
+                    }
+                }
+                }
+            },
+            plugins: [verticalPerformanceArrows, topLine]
+        };
+    
+        // render init block
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+
+    <!--Under 5 Mortality-->
+    <script>
+        // Original data
+        const under5Data = [{
+                name: 'Moyamba',
+                y: 9.38,
+                drilldown: 'Moyamba'
+            },
+            {
+                name: 'Kono',
+                y: 34.99,
+                drilldown: 'Kono'
+            },
+            {
+                name: 'Western Area Rural',
+                y: 3.72,
+                drilldown: 'Western Area Rural'
+            },
+            {
+                name: 'Karene',
+                y: 11.04,
+                drilldown: 'Karene'
+            },
+            {
+                name: 'Tonkolili',
+                y: 22.54,
+                drilldown: 'Tonkolili'
+            },
+            {
+                name: 'Falaba',
+                y: 4.84,
+                drilldown: 'Falaba'
+            },
+            {
+                name: 'Average of 6 Districts',
+                y: 16.26,
+                drilldown: 'Average of 6 Districts'
+            }
+        ];
+    
+        // Sort data by y value in descending order
+        const sortedUnder5Data = under5Data.sort((a, b) => b.y - a.y);
+    
+        // Set colors based on the threshold value of 33
+        const under5Series = sortedUnder5Data.map(item => ({
+            name: item.name,
+            y: item.y,
+            drilldown: item.drilldown,
+            color: item.name === 'Average of 6 Districts' ? 'grey' : (item.y < 16.26 ? '#32bfff' : item.y >= 16.26 ? 'red' : 'orange')
+            //color: item.y < 33 ? 'red' : 'green' // Set color based on threshold
+        }));
+    
+        // Create chart
+        Highcharts.chart('Under5Mortality', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                align: 'center',
+                text: 'Child mortality'
+            },
+            subtitle: {
+                align: 'center',
+                text: "Under five mortality rate expressed by the quarterly number of deaths of children under five years of age per 1,000 live births",
+                style: {
+                    fontSize: '16px'
+                }
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                gridLineWidth: 0,
+                max: 50
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}'
+                    },
+                }
+            },
+            series: [{
+                name: "Child mortality",
+                colorByPoint: false,
+                data: under5Series
+            }],
+            drilldown: {
+                breadcrumbs: {
+                    position: {
+                        align: 'right'
+                    }
+                },
+                series: [{
+                        name: 'Falaba',
+                        id: 'Falaba',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                23.37
+                            ],
+                            [
+                                '2023 Q4',
+                                4.84
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Karene',
+                        id: 'Karene',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                13.93
+                            ],
+                            [
+                                '2023 Q4',
+                                11.04
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Kono',
+                        id: 'Kono',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                14.70
+                            ],
+                            [
+                                '2023 Q4',
+                                34.99
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Moyamba',
+                        id: 'Moyamba',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                16.97
+                            ],
+                            [
+                                '2023 Q4',
+                                9.38
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Tonkolili',
+                        id: 'Tonkolili',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                15.38
+                            ],
+                            [
+                                '2023 Q4',
+                                22.54
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Western Area Rural',
+                        id: 'Western Area Rural',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                7.19
+                            ],
+                            [
+                                '2023 Q4',
+                                3.72
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Average of 6 Districts',
+                        id: 'Average of 6 Districts',
+                        type: 'line',
+                        data: [
+                            [
+                                '2023 Q3',
+                                14.12
+                            ],
+                            [
+                                '2023 Q4',
+                                16.26
+                            ],
+                            [
+                                '2024 Q1',
+                                0.0
+                            ],
+                            [
+                                '2024 Q2',
+                                0.0
+                            ],
+                        ]
+                    },
+                ]
+            }
+        });
+    </script>
+
+    <script>
+        function createChart(chartId) {
+            // setup 
+            const data = {
+                labels: ['Falaba', 'Karene', 'Kono', 'Moyamba', 'Tonkolili', 'Western Area Rural', 'Average of 6 Districts', 'National'],
+                datasets: [{
+                    label: '2023 Q3',
+                    data: [23.37, 13.93, 14.70, 16.97, 15.38, 7.19, 14.12, 24.06], 
+                    backgroundColor: [
+                        'orange',
+                    ],
+                    borderColor: [
+                        'orange'
+                    ],
+                    borderWidth: 1
+                },
+                {
+                    label: '2023 Q4',
+                    data: [4.84, 11.04, 34.99, 9.38, 22.54, 3.72, 16.26, 14.48],
+                    backgroundColor: [
+                        'grey'
+                    ],
+                    borderColor: [
+                        'grey'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+    
+            // verticalPerformanceArrows
+            const verticalPerformanceArrows = {
+                id: `${chartId}-verticalPerformanceArrows`,
+                afterDatasetsDraw(chart, args, plugins) {
+                    const { ctx, data, chartArea: {top}, scales: { x, y }} = chart;
+    
+                    ctx.save();
+    
+                    function drawArrow(color, index, yS, yE) {
+                        ctx.beginPath();
+                        ctx.fillStyle = color;
+                        ctx.moveTo(x.getPixelForValue(index), top + yS);
+                        ctx.lineTo(x.getPixelForValue(index) - 7.5, top + yE);
+                        ctx.lineTo(x.getPixelForValue(index) + 7.5, top + yE);
+                        ctx.closePath();
+                        ctx.fill();
+                    }
+    
+                    function drawRectangle(color, index) {
+                        ctx.beginPath();
+                        ctx.fillStyle = color;
+                        ctx.moveTo(x.getPixelForValue(index) - 7.5, top + 5);
+                        ctx.lineTo(x.getPixelForValue(index) + 7.5, top + 5);
+                        ctx.lineTo(x.getPixelForValue(index) + 7.5, top + 10);
+                        ctx.lineTo(x.getPixelForValue(index) - 7.5, top + 10);
+                        ctx.fill();
+                    }
+    
+                    data.datasets[0].data.forEach((datapoint, index) => {
+                        if(datapoint > data.datasets[1].data[index]) {
+                            drawArrow('#32bfff', index, 15, 0);
+                        } else if(datapoint < data.datasets[1].data[index]) {
+                            drawArrow('red', index, 0, 15);
+                        } else {
+                            drawRectangle('orange', index)
+                        }
+                    })
+                }
+            }
+    
+            const topLine = {
+                id: `${chartId}-topLine`,
+                afterDatasetsDraw(chart, args, plugins) {
+                    const { ctx, data } = chart;
+    
+                    ctx.save();
+    
+                    // Iterate over all datasets
+                    data.datasets.forEach((dataset, datasetIndex) => {
+                        chart.getDatasetMeta(datasetIndex).data.forEach((datapoint, index) => {
+                            ctx.beginPath();
+                            ctx.strokeStyle = dataset.borderColor[index];
+                            ctx.lineWidth = 3;
+                            const halfWidth = datapoint.width / 2;
+                            ctx.moveTo(datapoint.x - halfWidth, datapoint.y - 6);
+                            ctx.lineTo(datapoint.x + halfWidth, datapoint.y - 6);
+                            ctx.stroke();
+    
+                            // Text
+                            ctx.font = 'bold 12px';
+                            ctx.fillStyle = dataset.borderColor[index];
+                            ctx.textAlign = 'center';
+                            ctx.fillText(dataset.data[index], datapoint.x, datapoint.y - 15);
+                        });
+                    });
+                }
+            };
+    
+            // config 
+            const config = {
+                type: 'bar',
+                data,
+                options: {
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false 
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grace: '5%',
+                            grid: {
+                                display: false 
+                            }
+                        }
+                    }
+                },
+                plugins: [verticalPerformanceArrows, topLine]
+            };
+    
+            // render init block
+            const myChart = new Chart(
+                document.getElementById(chartId),
+                config
+            );
+        }
+    
+        // Call the function with different identifiers for each chart
+        createChart('underFiveChart');
+        createChart('myChart2');
+    </script>
+
+    <!--Learning Outcomes Column Comparison-->
+    <script>
+        const dataPrev = {
+        2022: [
+            ['fl', 258],
+            ['ke', 241],
+            ['kn', 243],
+            ['my', 242],
+            ['tk', 248],
+            ['wr', 251],
+            ['na', 248]
+        ]
+        };
+    
+        const current_data = {
+        2023: [
+            ['fl', 255],
+            ['ke', 241],
+            ['kn', 244],
+            ['my', 249],
+            ['tk', 245],
+            ['wr', 245],
+            ['na', 247]
+        ]
+        };
+    
+        const districts = {
+        fl: {
+            name: 'Falaba',
+        },
+        ke: {
+            name: 'Karene',
+        },
+        kn: {
+            name: 'Kono',
+        },
+        my: {
+            name: 'Moyamba',
+        },
+        tk: {
+            name: 'Tonkolili',
+        },
+        wr: {
+            name: 'Western Area Rural',
+        },
+        na: {
+            name: 'National',
+            color: '#00A6A6'
+        },
+        };
+    
+        // Add upper case country code
+        for (const [key, value] of Object.entries(districts)) {
+            value.ucCode = value.name;
+        }
+        
+    
+        const getData = current_data => current_data.map(point => ({
+            name: point[0],
+            y: point[1],
+            color: point[0] === 'na' ? '#00A6A6' : point[1] >= 248 ? '#32bfff' : point[1] < 248 ? 'red' : 'grey'
+        }));
+        
+        const chart = Highcharts.chart('learning', {
+        chart: {
+            type: 'column'
+        },
+        // Custom option for templates
+        districts,
+        title: {
+            text: 'Learning Outcomes',
+            align: 'center'
+        },
+        subtitle: {
+            text: 'Aggregate district score on National Primary School Exam (NPSE)',
+            align: 'center',
+            style: {
+                fontSize: '16px'
+            }
+        },
+        plotOptions: {
+            series: {
+                grouping: false,
+                borderWidth: 0
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            shared: true,
+            headerFormat: '<span style="font-size: 15px">' +
+                '{series.chart.options.districts.(point.key).name}' +
+                '</span><br/>',
+            pointFormat: '<span style="color:{point.color}">\u25CF</span> ' +
+                '{series.name}: <b>{point.y} aggregate</b><br/>'
+        },
+        xAxis: {
+            type: 'category',
+            accessibility: {
+                description: 'Districts'
+            },
+            
+            labels: {
+                useHTML: true,
+                animate: true,
+                format: '{chart.options.districts.(value).name}<br>' +
+                    '<span class="f32">' +
+                    '<span style="display:inline-block;height:32px;vertical-align:text-top;" ' +
+                    'class="flag {value}"></span></span>',
+                style: {
+                    textAlign: 'center'
+                }
+            }
+        },
+        yAxis: [{
+            title: {
+                text: 'Aggregrate points'
+            },
+            showFirstLabel: false,
+            gridLineWidth: 0,
+            max: 500
+        }],
+        series: [{
+            color: 'rgba(158, 159, 163, 0.5)',
+            pointPlacement: -0.2,
+            linkedTo: 'main',
+            data: dataPrev[2022].slice(),
+            name: '2022'
+        }, {
+            name: '2023',
+            id: 'main',
+            dataSorting: {
+                enabled: true,
+                matchByName: true
+            },
+            dataLabels: [{
+                enabled: true,
+                inside: true,
+                style: {
+                    fontSize: '16px'
+                }
+            }],
+            data: getData(current_data[2023]).slice()
+        }],
+        exporting: {
+            allowHTML: true
+        }
+        });
+    </script>
+
+    <!--Own Source Revenue-->
+    <script>
+        const prevData = {
+        2022: [
+            ['fl', 1.69],
+            ['ke', 0.54],
+            ['kn', 1.31],
+            ['my', 3.50],
+            ['tk', 1.59],
+            ['wr', 4.86],
+            ['na', 2.25]
+        ],
+        };
+    
+        const currentData = {
+        2023: [
+            ['fl', 0.97],
+            ['ke', 0.29],
+            ['kn', 1.22],
+            ['my', 6.64],
+            ['tk', 0.76],
+            ['wr', 7.21],
+            ['na', 2.85]
+        ]
+        };
+    
+        const base_districts = {
+        fl: {
+            name: 'Falaba',
+        },
+        ke: {
+            name: 'Karene',
+        },
+        kn: {
+            name: 'Kono*',
+        },
+        my: {
+            name: 'Moyamba',
+        },
+        tk: {
+            name: 'Tonkolili',
+        },
+        wr: {
+            name: 'Western Area Rural',
+        },
+        na: {
+            name: 'Average of 6 Districts',
+            color: '#00A6A6'
+        },
+        };
+    
+        // Add upper case country code
+        for (const [key, value] of Object.entries(base_districts)) {
+            value.ucCode = value.name;
+        }
+        
+    
+        const getCurrentData = currentData => currentData.map(point => ({
+            name: point[0],
+            y: point[1],
+            color: point[0] === 'na' ? '#00A6A6' : point[1] >= 2.9 ? '#32bfff' : point[1] < 2.9 ? 'red' : 'grey'
+        }));
+        
+        const own_source_chart = Highcharts.chart('own-source', {
+        chart: {
+            type: 'column'
+        },
+        // Custom option for templates
+        base_districts,
+        title: {
+            text: 'Own source revenue',
+            align: 'center'
+        },
+        subtitle: {
+            text: 'Own source revenue collected by Local Councils in NLE/capita',
+            align: 'center',
+            style: {
+                fontSize: '16px'
+            }
+        },
+        plotOptions: {
+            series: {
+                grouping: false,
+                borderWidth: 0
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            shared: true,
+            headerFormat: '<span style="font-size: 15px">' +
+                '{series.chart.options.districts.(point.key).name}' +
+                '</span><br/>',
+            pointFormat: '<span style="color:{point.color}">\u25CF</span> ' +
+                '{series.name}: <b>NLE {point.y}</b><br/>'
+        },
+        xAxis: {
+            type: 'category',
+            accessibility: {
+                description: 'Districts'
+            },
+            
+            labels: {
+                useHTML: true,
+                animate: true,
+                format: '{chart.options.base_districts.(value).name}<br>' +
+                    '<span class="f32">' +
+                    '<span style="display:inline-block;height:32px;vertical-align:text-top;" ' +
+                    'class="flag {value}"></span></span>',
+                style: {
+                    textAlign: 'center'
+                }
+            }
+        },
+        yAxis: [{
+            title: {
+                text: null
+            },
+            gridLineWidth: 0,
+            showFirstLabel: false,
+            labels: {
+                enabled: false
+            },
+            max: 10
+        }],
+        series: [{
+            color: 'rgba(158, 159, 163, 0.5)',
+            pointPlacement: -0.2,
+            linkedTo: 'main',
+            data: prevData[2022].slice(),
+            name: '2022'
+        }, {
+            name: '2023',
+            id: 'main',
+            dataSorting: {
+                enabled: true,
+                matchByName: true
+            },
+            dataLabels: [{
+                enabled: true,
+                inside: true,
+                style: {
+                    fontSize: '16px'
+                },
+                format: '{point.y:.1f}'
+            }],
+            data: getCurrentData(currentData[2023]).slice()
+        }],
+        exporting: {
+            allowHTML: true
+        }
+        });
+
+
+    </script>
+
+    <!--Community Stability-->
+    <script>
+        // Original data
+        const stabilityData = [{
+                name: 'Falaba',
+                y: 98,
+                drilldown: 'Falaba'
+            },
+            {
+                name: 'Karene',
+                y: 76,
+                drilldown: 'Karene'
+            },
+            {
+                name: 'Kono',
+                y: 66,
+                drilldown: 'Kono'
+            },
+            {
+                name: 'Moyamba',
+                y: 59,
+                drilldown: 'Moyamba'
+            },
+            {
+                name: 'Tonkolili',
+                y: 69,
+                drilldown: 'Tonkolili'
+            },
+            {
+                name: 'Western Area Rural',
+                y: 59,
+                drilldown: 'Western Area Rural'
+            },
+            {
+                name: 'Average of 6 Districts',
+                y: 69,
+                drilldown: 'Average of 6 Districts',
+                color: 'blue'
+            }
+        ];
+    
+        // Sort data by y value in descending order
+        const sortedStabilityData = stabilityData.sort((a, b) => b.y - a.y);
+    
+        // Set colors based on the threshold values
+        const stabilitySeries = sortedStabilityData.map(item => ({
+            name: item.name,
+            y: item.y,
+            drilldown: item.drilldown,
+            color: item.name === 'Average of 6 Districts' ? 'grey' : (item.y < 69 ? 'red' : item.y >= 69 ? '#32bfff' : 'orange')
+        }));
+    
+        // Create chart
+        Highcharts.chart('community-stability', {
+            chart: {
+                type: 'column',
+            },
+            title: {
+                align: 'center',
+                text: 'Community Stability'
+            },
+            subtitle: {
+                align: 'center',
+                text: 'Percentage of people who say their community is (somewhat or very much) safe',
+                style: {
+                    fontSize: '16px'
+                }
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                gridLineWidth: 0,
+                max: 100,
+                maxPadding: 0.9
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.0f}%'
+                    },
+                    zones: [{
+                        value: 60,
+                        color: 'red'
+                    }, {
+                        value: 70,
+                        color: 'orange'
+                    }, {
+                        color: 'green'
+                    }]
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+            series: [{
+                name: 'Trust Level',
+                colorByPoint: false,
+                data: stabilitySeries
+            }],
+            drilldown: {
+                breadcrumbs: {
+                    position: {
+                        align: 'right'
+                    }
+                },
+                series: [{
+                        name: 'Falaba',
+                        id: 'Falaba',
+                        type: 'line',
+                        data: [
+                            ['Baseline', 98],
+                            ['Q2 2024', 0],
+                            ['Q3 2024', 0],
+                            ['Q4 2024', 0],
+                        ]
+                    },
+                    {
+                        name: 'Karene',
+                        id: 'Karene',
+                        type: 'line',
+                        data: [
+                            ['Baseline', 76],
+                            ['Q2 2024', 0],
+                            ['Q3 2024', 0],
+                            ['Q4 2024', 0],
+                        ]
+                    },
+                    {
+                        name: 'Kono',
+                        id: 'Kono',
+                        type: 'line',
+                        data: [
+                            ['Baseline', 66],
+                            ['Q2 2024', 0],
+                            ['Q3 2024', 0],
+                            ['Q4 2024', 0],
+                        ]
+                    },
+                    {
+                        name: 'Moyamba',
+                        id: 'Moyamba',
+                        type: 'line',
+                        data: [
+                            ['Baseline', 59],
+                            ['Q2 2024', 0],
+                            ['Q3 2024', 0],
+                            ['Q4 2024', 0],
+                        ]
+                    },
+                    {
+                        name: 'Tonkolili',
+                        id: 'Tonkolili',
+                        type: 'line',
+                        data: [
+                            ['Baseline', 69],
+                            ['Q2 2024', 0],
+                            ['Q3 2024', 0],
+                            ['Q4 2024', 0],
+                        ]
+                    },
+                    {
+                        name: 'Western Area Rural',
+                        id: 'Western Area Rural',
+                        type: 'line',
+                        data: [
+                            ['Baseline', 59],
+                            ['Q2 2024', 0],
+                            ['Q3 2024', 0],
+                            ['Q4 2024', 0],
+                        ]
+                    },
+                    {
+                        name: 'Average of 6 Districts',
+                        id: 'Average of 6 Districts',
+                        type: 'line',
+                        data: [
+                            ['Baseline', 69],
+                            ['Q2 2024', 0],
+                            ['Q3 2024', 0],
+                            ['Q4 2024', 0],
+                        ]
+                    },
+                ]
+            }
+        });
+    </script>
+
+    <!--Under 5 Mortality-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        var options = {
+          series: [{
+          name: 'Cash Flow',
+          data: {{ infant_mortality_district_values|safe }}
+        }],
+          chart: {
+          type: 'bar',
+          height: 350
+        },
+        plotOptions: {
+          bar: {
+            colors: {
+              ranges: [{
+                from: -6,
+                to: -100,
+                color: '#FF0000'
+              }, {
+                from: -5,
+                to: 500,
+                color: '#FF4560'
+              }]
+            },
+            columnWidth: '80%',
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          formatter: function (val) {
+            return val.toFixed(0) + "%";
+          },
+          style: {
+            colors: ['#000000']  // Change this to the desired color for data labels
+          }
+        },
+        yaxis: {
+          title: {
+            text: '% change in mortality of under 5 children',
+          },
+          labels: {
+            formatter: function (y) {
+              return y.toFixed(0) + "%";
+            }
+          }
+        },
+        xaxis: {
+          categories: {{ infant_mortality_districts|safe }},
+          labels: {
+            rotate: -45, // Adjust the rotation angle as needed
+              style: {
+                  fontSize: '18px', // Change this to the desired font size for category labels
+                  colors: ['#000000'] // Change this to the desired color for category labels
+              }
+          }
+        }
+        };
+  
+        var chart = new ApexCharts(document.querySelector("#newChart"), options);
+        chart.render();
+    </script>
+
+    <!--Bribery-->
+    <!--Education-->
+    <script>
+        // Original data
+        const briberyEduData = [{
+                name: 'Moyamba',
+                y: 62,
+                drilldown: 'Moyamba'
+            },
+            {
+                name: 'Kono',
+                y: 62,
+                drilldown: 'Kono'
+            },
+            {
+                name: 'Western Area Rural',
+                y: 29,
+                drilldown: 'Western Area Rural'
+            },
+            {
+                name: 'Karene',
+                y: 25,
+                drilldown: 'Karene'
+            },
+            {
+                name: 'Tonkolili',
+                y: 38,
+                drilldown: 'Tonkolili'
+            },
+            {
+                name: 'Falaba',
+                y: 21,
+                drilldown: 'Falaba'
+            },
+            {
+                name: 'Average of 6 Districts',
+                y: 42,
+                drilldown: 'Average of 6 Districts'
+            }
+        ];
+    
+        // Sort data by y value in descending order
+        const sortedBriberyEduData = briberyEduData.sort((a, b) => b.y - a.y);
+    
+        // Set colors based on the threshold value of 33
+        const briberyEduSeries = sortedBriberyEduData.map(item => ({
+            name: item.name,
+            y: item.y,
+            drilldown: item.drilldown,
+            color: item.name === 'Average of 6 Districts' ? 'grey' : (item.y < 42 ? '#32bfff' : item.y >= 42 ? 'red' : 'orange')
+        }));
+    
+        // Create chart
+        Highcharts.chart('bribery-education', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                align: 'center',
+                text: 'Bribery for education'
+            },
+            subtitle: {
+                align: 'center',
+                text: "Percentage of people who say they have paid bribe, gave a gift or did a favor for education services.",
+                style: {
+                    fontSize: '16px'
+                }
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                gridLineWidth: 0,
+                max: 100
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.0f}%'
+                    },
+                }
+            },
+            series: [{
+                name: "Bribery for Education",
+                colorByPoint: true,
+                data: briberyEduSeries // Use briberyEduSeries instead of briberyEduData
+            }],
+            drilldown: {
+                breadcrumbs: {
+                    position: {
+                        align: 'right'
+                    }
+                },
+                series: [{
+                        name: 'Falaba',
+                        id: 'Falaba',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                21
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Karene',
+                        id: 'Karene',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                25
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Kono',
+                        id: 'Kono',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                62
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Moyamba',
+                        id: 'Moyamba',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                62
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Tonkolili',
+                        id: 'Tonkolili',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                38
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Western Area Rural',
+                        id: 'Western Area Rural',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                29
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Average of 6 Districts',
+                        id: 'Average of 6 Districts',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                42
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    
+                ]
+            }
+        });
+    </script>
+
+
+    <!--Healthcare-->
+    <script>
+        // Original data
+        const briberyHealthData = [{
+                name: 'Moyamba',
+                y: 70,
+                drilldown: 'Moyamba'
+            },
+            {
+                name: 'Kono',
+                y: 73,
+                drilldown: 'Kono'
+            },
+            {
+                name: 'Western Area Rural',
+                y: 41,
+                drilldown: 'Western Area Rural'
+            },
+            {
+                name: 'Karene',
+                y: 23,
+                drilldown: 'Karene'
+            },
+            {
+                name: 'Tonkolili',
+                y: 57,
+                drilldown: 'Tonkolili'
+            },
+            {
+                name: 'Falaba',
+                y: 42,
+                drilldown: 'Falaba'
+            },
+            {
+                name: 'Average of 6 Districts',
+                y: 54,
+                drilldown: 'Average of 6 Districts'
+            }
+        ];
+    
+        // Sort data by y value in descending order
+        const sortedBriberyHealthData = briberyHealthData.sort((a, b) => b.y - a.y);
+    
+        // Set colors based on the threshold value of 33
+        const briberyHealthSeries = sortedBriberyHealthData.map(item => ({
+            name: item.name,
+            y: item.y,
+            drilldown: item.drilldown,
+            color: item.name === 'Average of 6 Districts' ? 'grey' : (item.y < 54 ? '#32bfff' : item.y >= 54 ? 'red' : 'orange')
+        }));
+    
+        // Create chart
+        Highcharts.chart('bribery-health', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                align: 'center',
+                text: 'Bribery for healthcare'
+            },
+            subtitle: {
+                align: 'center',
+                text: "Percentage of people who say they have paid bribe, gave a gift or did a favor for healthcare services",
+                style: {
+                    fontSize: '16px'
+                }
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                gridLineWidth: 0,
+                max: 100
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.0f}%'
+                    },
+                }
+            },
+            series: [{
+                name: "Bribery for Education",
+                colorByPoint: true,
+                data: briberyHealthSeries
+            }],
+            drilldown: {
+                breadcrumbs: {
+                    position: {
+                        align: 'right'
+                    }
+                },
+                series: [{
+                        name: 'Falaba',
+                        id: 'Falaba',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                42
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Karene',
+                        id: 'Karene',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                23
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Kono',
+                        id: 'Kono',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                73
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Moyamba',
+                        id: 'Moyamba',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                70
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Tonkolili',
+                        id: 'Tonkolili',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                57
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Western Area Rural',
+                        id: 'Western Area Rural',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                41
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Average of 6 Districts',
+                        id: 'Average of 6 Districts',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                54
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                ]
+            }
+        });
+    </script>
+
+
+    <!--Agriculture-->
+    <script>
+        // Original data
+        const briberyAgriData = [{
+                name: 'Moyamba',
+                y: 17,
+                drilldown: 'Moyamba'
+            },
+            {
+                name: 'Kono',
+                y: 15,
+                drilldown: 'Kono'
+            },
+            {
+                name: 'Western Area Rural',
+                y: 0,
+                drilldown: 'Western Area Rural'
+            },
+            {
+                name: 'Karene',
+                y: 27,
+                drilldown: 'Karene'
+            },
+            {
+                name: 'Tonkolili',
+                y: 74,
+                drilldown: 'Tonkolili'
+            },
+            {
+                name: 'Falaba',
+                y: 0,
+                drilldown: 'Falaba'
+            },
+            {
+                name: 'Average of 6 Districts',
+                y: 43,
+                drilldown: 'Average of 6 Districts'
+            }
+        ];
+    
+        // Sort data by y value in descending order
+        const sortedBriberyAgriData = briberyAgriData.sort((a, b) => b.y - a.y);
+    
+        // Set colors based on the threshold value of 33
+        const briberyAgriSeries = sortedBriberyAgriData.map(item => ({
+            name: item.name,
+            y: item.y,
+            drilldown: item.drilldown,
+            color: item.name === 'Average of 6 Districts' ? 'grey' : (item.y < 43 ? '#32bfff' : item.y >= 43 ? 'red' : 'orange')
+        }));
+    
+        // Create chart
+        Highcharts.chart('bribery-agri', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                align: 'center',
+                text: 'Bribery for agricultural support services'
+            },
+            subtitle: {
+                align: 'center',
+                text: "Percentage of people who say they have paid bribe, gave a gift or did a favor for agricultural support services",
+                style: {
+                    fontSize: '16px'
+                }
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: null
+                },
+                gridLineWidth: 0,
+                max: 100
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.0f}%'
+                    },
+                }
+            },
+            series: [{
+                name: "Bribery for agricultural support services",
+                colorByPoint: true,
+                data: briberyAgriSeries
+            }],
+            drilldown: {
+                breadcrumbs: {
+                    position: {
+                        align: 'right'
+                    }
+                },
+                series: [{
+                        name: 'Falaba',
+                        id: 'Falaba',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                0
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Karene',
+                        id: 'Karene',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                27
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Kono',
+                        id: 'Kono',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                15
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Moyamba',
+                        id: 'Moyamba',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                17
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Tonkolili',
+                        id: 'Tonkolili',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                74
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Western Area Rural',
+                        id: 'Western Area Rural',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                0
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                    {
+                        name: 'Average of 6 Districts',
+                        id: 'Average of 6 Districts',
+                        type: 'line',
+                        data: [
+                            [
+                                'Baseline',
+                                43
+                            ],
+                            [
+                                'Q2 2024',
+                                0
+                            ],
+                            [
+                                'Q3 2024',
+                                0
+                            ],
+                            [
+                                'Q4 2024',
+                                0
+                            ],
+                        ]
+                    },
+                ]
+            }
+        });
+    </script>
+
+
+        </div>
+
+    </div>
+    </section><!-- End Services Section -->
+
+        </div>
+    </section>
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="container d-md-flex py-4">
+
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">&copy; Copyright <strong><span><a href="https://igr-sl.org">Institute for Governance Reform (IGR)</a> 2024</span></strong>. All Rights Reserved</div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+
+    <script src="{% static 'tw-elements/dist/js/tw-elements.umd.min.js' %}" type="text/javascript"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

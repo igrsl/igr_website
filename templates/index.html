@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>LOCAL GOVERNANCE AND SERVICES TRACKER (LGST)</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <script src="https://code.highcharts.com/10/highcharts.js"></script>
+
+    <style>
+        .hero-video {
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            left: 50%;
+            top: -20%;
+            transform: translateX(-50%);
+            background-color: rgb(51, 51, 51);
+        }
+
+        video {
+            object-fit: contain;
+            overflow-clip-margin: content-box;
+            overflow: clip;
+        }
+
+        .why-us .content h3 {
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        .sector {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            -webkit-font-smoothing: antialiased;
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        .sector1 {
+            display: flex;
+            flex-direction: column;
+            -webkit-box-align: center;
+            align-items: center;
+            letter-spacing: 3px;
+        }
+
+        .sector2 {
+            display: flex;
+            flex-direction: column;
+            -webkit-box-align: center;
+            align-items: center;
+            letter-spacing: 3px;
+        }
+
+        .sector3 {
+            display: flex;
+            flex-direction: column;
+            -webkit-box-align: center;
+            align-items: center;
+            letter-spacing: 3px;
+        }
+
+        .sector4 {
+            display: flex;
+            flex-direction: column;
+            -webkit-box-align: center;
+            align-items: center;
+            letter-spacing: 3px;
+        }
+
+        .sector1 p {
+            font-size: 17px;
+            margin-top: 20px;
+            line-height: 1.4;
+        }
+
+        .sector1_name {
+            font-style: initial;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+            padding-right: 15px;
+        }
+
+        .sector2_name {
+            font-style: initial;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+        }
+
+        .sector3_name {
+            font-style: initial;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+        }
+
+        .sector4_name {
+            font-style: initial;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            text-align: center;
+            color: #fff;
+        }
+
+        p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        .sector a {
+            color: inherit;
+            text-decoration: none;
+            letter-spacing: 3px;
+            display: block;
+            padding: 2rem 0px 1rem;
+            border-right: 1px solid #fff;
+        }
+
+        .sector a:last-of-type {
+            border-right: 0px;
+        }
+
+        .about .video-box {
+            background: url("../images/base.jpg") center center no-repeat;
+            background-size: contain;
+            min-height: 500px;
+        }
+
+        .why-us {
+        padding: 80px 0;
+        }
+
+        .content {
+        text-align: center;
+        }
+
+        .sector {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+        }
+
+        .sector a {
+        text-decoration: none;
+        color: #212529;
+        }
+
+        .sector1,
+        .sector2,
+        .sector3,
+        .sector4 {
+        text-align: center;
+        width: 100%;
+        }
+
+        .sector img {
+        max-width: 100%;
+        height: auto;
+        }
+
+        .sector p {
+        margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+        .sector {
+            flex-direction: column;
+        }
+        }
+
+        .custom-margin {
+            margin-top: 0px; /* Default margin for all screen sizes */
+        }
+    
+        /* Define different margins for different screen sizes using media queries */
+        @media (max-width: 576px) { /* Extra small devices (phones) */
+            .custom-margin {
+                margin-top: 0; /* No margin on extra small screens */
+            }
+        }
+    
+        @media (min-width: 577px) and (max-width: 768px) { /* Small devices (tablets) */
+            .custom-margin {
+                margin-top: -180px; /* Margin for small screens */
+            }
+        }
+    
+        @media (min-width: 769px) and (max-width: 992px) { /* Medium devices (desktops) */
+            .custom-margin {
+                margin-top: -180px; /* Margin for medium screens */
+            }
+        }
+    
+        @media (min-width: 993px) and (max-width: 1200px) { /* Large devices (desktops) */
+            .custom-margin {
+                margin-top: -180px; /* Margin for large screens */
+            }
+        }
+    
+        @media (min-width: 1201px) { /* Extra large devices (large desktops) */
+            .custom-margin {
+                margin-top: -180px; /* Margin for extra large screens */
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ======= Top Bar ======= -->
+    <div id="topbar" class="d-flex align-items-center fixed-top">
+        <div class="container d-flex justify-content-between">
+        <div class="contact-info d-flex align-items-center">
+            <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">info@igrsl.org</a>
+            <i class="bi bi-phone"></i> +232 30 992 907
+        </div>
+        <div class="d-none d-lg-flex social-links align-items-center">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        </div>
+        </div>
+    </div>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+
+            <h1 class="logo me-auto"><a href="{% url 'index' %}" style="font-size: 16px;">LOCAL GOVERNANCE AND SERVICES TRACKER (LGST)</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="{% url 'index' %}">Home</a></li>
+                    <li><a class="nav-link scrollto" href="{% url 'central_gov' %}">Central Government</a></li>
+                    <li><a class="nav-link scrollto" href="{% url 'local_gov' %}">Local Council</a></li>
+                    <li><a class="nav-link scrollto" href="{% url 'cso_media' %}">CSO & Media</a></li>
+                </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center">
+        <video autoplay muted loop class="hero-video"  style="height: 800px;">
+            <source src="{% static 'videos/base_video.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container">
+            <h1 style="color:white">Sierra Leone</h1>
+            <h2 style="color:white; font-size: 38px; text-transform: uppercase;">LOCAL GOVERNANCE AND SERVICES TRACKER</h2>
+        </div>
+    </section>
+    <!-- End Hero -->
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 d-flex align-items-stretch">
+                    <div class="content">
+                        <img src="{% static 'images/base_and_usaid_logo.jpg' %}" alt="" width="300" height="80">
+                        <h3 class="mt-4">LGST</h3>
+                        <p>
+                            The Local Governance and Services Tracker (LGST) is an online citizen scorecard that enables stakeholders in government and civil society to collaborate and see the contributions they make, as well as the outputs they co-create, in local service delivery.
+                        </p>
+                        <div class="text-center">
+                            <a href="#" class="more-btn" data-bs-toggle="modal" data-bs-target="#learnMoreModal">Learn More <i class="bx bx-chevron-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title fw-bold" id="learnMoreModalLabel">Local Governance and Services Tracker (LGST)</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- Add your content for the modal here -->
+                                    <p>The Local Governance and Services Tracker (LGST) is an innovative tool designed for citizens and authorities to work together in monitoring progress towards improved governance and service delivery.  Co-hosted by the Ministry of Local Government and Institute for Governance Reform (IGR), the LGST generates regular reports using key indicators agreed by three parties (Central Government Ministries, local government and CSOs). Regular updates are presented to responsible decision makers and elected officials for action.</p>
+                                    <p>Data is gathered through citizen surveys and secondary sources provided by central government ministries and local councils from the six project intervention districts. This dashboard serves not only to track progress and indicate areas where action needs to be taken, but also to foster collaboration among citizens, service providers, CSOs, media, and local and central government structures. Through established feedback mechanisms like learning events, open meetings, workshops, and improved media communication, all stakeholders can work together to enhance service delivery for citizens.</p>
+                                    
+                                    <h5 class="modal-title fw-bold" id="learnMoreModalLabel">Methodology of surveys</h5>
+                                    <p>Citizens surveys use a sample size of 1920 Sierra Leoneans of 18 years of age and above. This sample size produces a 2.24% margin of error with 95% confidence interval, which exceeds the standards of baseline studies commonly used in development projects. We use a bigger sample size, to generate valid data about agricultural service delivery, which is only researched with the help of farmer respondents. According to the 2015 census, 59% of Sierra Leonean households consisted of at least one person who engaged in farming activities. This calculation means a probable 1152 respondents who will answer the farmer’s questionnaire which will still produce a 2.89% margin of error. The number of respondents and Enumeration Areas (EA) determined proportionately to the population size of the district according to the latest (2021) population census of Sierra Leone. A random sampling was used to select EAs, households and respondents with regards to the gender balance.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-8 d-flex align-items-stretch">
+                <div class="icon-boxes d-flex flex-column justify-content-center">
+                    <div class="row" style="margin-top: -120px;">
+                        <div class="col-xl-4 d-flex align-items-stretch">
+                            <a class="icon-box mt-4 mt-xl-0" href="{% url 'central_gov' %}">
+                                <div class="sector1">
+                                    <img src="{% static 'images/government.png' %}" alt="" width="60" height="60">
+                                    <p class="sector1_name">Central Government</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-4 d-flex align-items-stretch">
+                            <a class="icon-box mt-4 mt-xl-0" href="{% url 'local_gov' %}">
+                                <div class="sector2">
+                                    <img src="{% static 'images/city-council.png' %}" alt="" width="60" height="60">
+                                    <p class="sector2_name">Local Council</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-xl-4 d-flex align-items-stretch">
+                            <a class="icon-box mt-4 mt-xl-0" href="{% url 'cso_media' %}">
+                                <div class="sector3">
+                                    <img src="{% static 'images/conversation.png' %}" alt="" width="60" height="60">
+                                    <p class="sector4_name">CSO and Media</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div><!-- End .content-->
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-sm-5">
+                    <div class="p-4">
+                        <img src="{% static 'images/IGR LOGO.jpeg' %}" alt="" width="300" height="300">
+                        <h5><a href="https://igr-sl.org">Institute for Governance Reform (IGR)</a></h5>
+                    </div>
+                </div>
+                <div class="col-sm-7 custom-margin">
+                    <div class="p-4">
+                        <h2 class="fw-bold text-center">About BASE</h2>
+                        <p style="line-height: 2;">LGST is established by BASE (Building Accountability Systems through Empowered Communities), a USAID-funded project primed by the Institute for Governance Reform (IGR) and implemented by Sierra Leonean organizations including CARL, BAN, IRN, and the 50/50 Group. This project aims to enhance accountability and performance in local governance and service delivery, acting as a bridge between the state and citizens.</p>
+                        <div class="text-center">
+                            <a href="#" class="more-btn" data-bs-toggle="modal" data-bs-target="#learnBASEModal">Learn More <i class="bx bx-chevron-right"></i></a>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="learnBASEModal" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title fw-bold" id="learnMoreModalLabel">Learn More</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Add your content for the modal here -->
+                                        <p>Building Accountability Systems through Empowered Communities (BASE) addresses challenges persisting despite two decades of decentralization, including inadequate support from central to local governance, weak resource mobilization by local councils, and a lack of planning coherence.  
+
+                                            The project reinforces the social contract between the state and its citizens, with local Civil Society Organizations (CSOs) and media playing pivotal roles in facilitating engagement between institutions and citizen-driven data. 
+                                            
+                                            BASE's Theory of Change posits that increased citizen participation and transparency in local revenue and service management, coupled with improved service delivery, will boost trust in local authorities and performance in decentralized service delivery.  
+                                            
+                                            Expected outcomes in 36 months include increased community stability, local council revenue, citizens' trust in local authorities, improved learning outcomes, higher farmers’ yields, and reduced mortality rates among mothers and children under five years of age. </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Why Us Section -->
+
+    <main id="main">
+
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="container d-md-flex py-4">
+
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">&copy; Copyright <strong><span><a href="https://igr-sl.org">Institute for Governance Reform (IGR)</a> 2024</span></strong>. All Rights Reserved</div>
+            </div>
+            <div class="social-links text-center text-md-right pt-3 pt-md-0">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

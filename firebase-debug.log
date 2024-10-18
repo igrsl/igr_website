@@ -1,0 +1,61 @@
+[debug] [2024-01-14T15:37:55.184Z] ----------------------------------------------------------------------
+[debug] [2024-01-14T15:37:55.186Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2024-01-14T15:37:55.187Z] CLI Version:   13.0.3
+[debug] [2024-01-14T15:37:55.187Z] Platform:      win32
+[debug] [2024-01-14T15:37:55.187Z] Node Version:  v20.10.0
+[debug] [2024-01-14T15:37:55.187Z] Time:          Sun Jan 14 2024 07:37:55 GMT-0800 (Pacific Standard Time)
+[debug] [2024-01-14T15:37:55.187Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-01-14T15:37:55.189Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[info] i  To change your data collection preference at any time, run `firebase logout` and log in again. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://accounts.google.com/o/oauth2/auth?client_id=563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com&scope=email%20openid%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloudplatformprojects.readonly%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Ffirebase%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform&response_type=code&state=23228782&redirect_uri=http%3A%2F%2Flocalhost%3A9005
+[info] 
+[info] Waiting for authentication...
+[debug] [2024-01-14T15:38:13.922Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-01-14T15:38:13.923Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-01-14T15:41:41.339Z] >>> [apiv2][query] POST https://accounts.google.com/o/oauth2/token [none]
+[debug] [2024-01-14T15:41:41.339Z] >>> [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[debug] [2024-01-14T15:41:44.591Z] <<< [apiv2][status] POST https://accounts.google.com/o/oauth2/token 200
+[debug] [2024-01-14T15:41:44.591Z] <<< [apiv2][body] POST https://accounts.google.com/o/oauth2/token [omitted]
+[info] 
+[info] +  Success! Logged in as gilbertfullah@gmail.com 
+[debug] [2024-01-14T15:41:54.636Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:258:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-01-14T15:42:03.737Z] ----------------------------------------------------------------------
+[debug] [2024-01-14T15:42:03.739Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2024-01-14T15:42:03.740Z] CLI Version:   13.0.3
+[debug] [2024-01-14T15:42:03.740Z] Platform:      win32
+[debug] [2024-01-14T15:42:03.740Z] Node Version:  v20.10.0
+[debug] [2024-01-14T15:42:03.740Z] Time:          Sun Jan 14 2024 07:42:03 GMT-0800 (Pacific Standard Time)
+[debug] [2024-01-14T15:42:03.740Z] ----------------------------------------------------------------------
+[debug] 
+[info] Already logged in as gilbertfullah@gmail.com
+[debug] [2024-01-14T15:42:13.796Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:258:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-01-14T17:04:36.032Z] ----------------------------------------------------------------------
+[debug] [2024-01-14T17:04:36.034Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js login
+[debug] [2024-01-14T17:04:36.035Z] CLI Version:   13.0.3
+[debug] [2024-01-14T17:04:36.035Z] Platform:      win32
+[debug] [2024-01-14T17:04:36.035Z] Node Version:  v20.10.0
+[debug] [2024-01-14T17:04:36.035Z] Time:          Sun Jan 14 2024 09:04:36 GMT-0800 (Pacific Standard Time)
+[debug] [2024-01-14T17:04:36.035Z] ----------------------------------------------------------------------
+[debug] 
+[info] Already logged in as gilbertfullah@gmail.com
+[debug] [2024-01-14T17:04:46.106Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\Admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:258:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.
